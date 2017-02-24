@@ -18,7 +18,7 @@
         {
             Client::deleteAll();
         }
-        
+
         function test_save() {
             //Arrange
             $name = "Minori Nakada";
@@ -72,6 +72,23 @@
 
             //Assert
             $this->assertEquals([], $result);
+        }
+
+        function test_update()
+        {
+            //Arrange
+            $name = "Minori Nakada";
+            $stylist_id = 1;
+            $test_client = new Client($name, $stylist_id);
+            $test_client->save();
+
+            //Act
+            $new_name = "Makoto Hasegawa";
+            $test_client->update($new_name);
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals($test_client, $result[0]);
         }
     }
 

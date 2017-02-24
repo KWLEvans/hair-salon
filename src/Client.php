@@ -40,6 +40,13 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function update($new_name)
+        {
+            $this->setName($new_name);
+            $sql = $GLOBALS['DB']->prepare("UPDATE clients SET name = :name WHERE id = :id;");
+            $sql->execute([':name' => $this->getName(), ':id' => $this->getId()]);
+        }
+
         static function getAll()
         {
             $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");

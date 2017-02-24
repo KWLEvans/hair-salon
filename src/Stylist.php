@@ -46,11 +46,10 @@
         }
 
         function update($new_name, $new_bio) {
-            $sql = $GLOBALS['DB']->prepare("UPDATE stylists SET name = :name, bio = :bio WHERE id = :id;");
-            $sql->execute([':name' => $new_name, ':bio' => $new_bio, ':id' => $this->getId()]);
-
             $this->setName($new_name);
             $this->setBio($new_bio);
+            $sql = $GLOBALS['DB']->prepare("UPDATE stylists SET name = :name, bio = :bio WHERE id = :id;");
+            $sql->execute([':name' => $this->getName(), ':bio' => $this->getBio(), ':id' => $this->getId()]);
         }
 
         function delete()
