@@ -69,6 +69,10 @@
 
         function delete()
         {
+            $clients = $this->getClients();
+            foreach ($clients as $client) {
+                $client->delete();
+            }
             $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
         }
 

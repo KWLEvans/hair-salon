@@ -70,6 +70,13 @@
         return $app->redirect('/stylists/'.$client->getStylistId());
     });
 
+    $app->delete('clients/{id}', function($id) use ($app) {
+        $client = Client::find($id);
+        $stylist_id = $client->getStylistId();
+        $client->delete();
+        return $app->redirect('/stylists/'.$stylist_id);
+    });
+
     $app->get('clients/{id}/edit', function($id) use ($app) {
         $client = Client::find($id);
         return $app['twig']->render('edit_client.html.twig', ['client' => $client]);

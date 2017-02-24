@@ -10,11 +10,22 @@
                 <div class="card-block">
                     <h6 class="card-subtitle text-muted">Click to edit</h6>
                     <br>
-                    <ul>
-                        {% for client in clients %}
-                            <a href='/clients/{{ client.getId() }}/edit'><li>{{ client.getName() }}</li></a>
-                        {% endfor %}
-                    </ul>
+                    {% for client in clients %}
+                        <div class="row">
+                            <div class="col col-6">
+                                <h6>{{ client.getName() }}</h6>
+                            </div>
+                            <div class="col col-6">
+                                <form action="/clients/{{ client.getId() }}" method="post" class="form-group client-modify-form">
+                                    <input name="_method" type="hidden" value="delete">
+                                    <button type="submit" class="btn btn-sm">Delete</button>
+                                </form>
+                                <form action="/clients/{{ client.getId() }}/edit" class="form-group client-modify-form">
+                                    <button type="submit" class="btn btn-sm">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

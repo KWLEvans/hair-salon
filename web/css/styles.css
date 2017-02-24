@@ -14,6 +14,11 @@
     outline-width: 0px !important;
 }
 
+.client-modify-form {
+    float: right;
+    margin: 5px;
+}
+
 #home-button {
     position: absolute;
     top: 20px;

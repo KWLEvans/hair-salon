@@ -130,12 +130,18 @@
             $test_stylist2 = new Stylist($name, $bio);
             $test_stylist2->save();
 
+            $name = "Minori Nakada";
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($name, $stylist_id);
+            $test_client->save();
+
             //Act
             $test_stylist->delete();
             $result = Stylist::getAll();
 
             //Assert
             $this->assertEquals([$test_stylist2], $result);
+            $this->assertEquals([], Client::getAll());
         }
 
         function test_getClients()
