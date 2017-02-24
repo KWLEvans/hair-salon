@@ -29,8 +29,8 @@
                         <div class="card-block">
                             <ul>
                                 <li>{{ stylist.getBio() }}</li>
-                                <li><a href="/stylists/{{ stylist.getId() }}"><button class="btn btn-primary">See clients</button></a></li>
                             </ul>
+                            <a href="/stylists/{{ stylist.getId() }}"><button class="btn btn-primary">See clients</button></a>
                         </div>
                     </div>
                 {% endfor %}

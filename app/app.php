@@ -9,6 +9,9 @@
     $app['debug'] = true;
 
     $server = 'mysql:host=localhost:8889;dbname=hair_salon';
+    //If server path breaks, try back-up path below
+    //$server = 'mysql:unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock;dbname=hair_salon';
+
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
