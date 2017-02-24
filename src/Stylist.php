@@ -48,9 +48,14 @@
         function update($new_name, $new_bio) {
             $sql = $GLOBALS['DB']->prepare("UPDATE stylists SET name = :name, bio = :bio WHERE id = :id;");
             $sql->execute([':name' => $new_name, ':bio' => $new_bio, ':id' => $this->getId()]);
-            
+
             $this->setName($new_name);
             $this->setBio($new_bio);
+        }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
         }
 
         static function find($id)

@@ -113,6 +113,27 @@
             $this->assertEquals($new_name, $stylist->getName());
             $this->assertEquals($new_bio, $stylist->getBio());
         }
+
+        function test_delete()
+        {
+            //Arrange
+            $name = "Tatsuya Uchihara";
+            $bio = "Straight from Blast Salon in Tokyo, the newest Hair-etic Tatsuya 'Uchi' Uchihara brings a unique flair and dazzling smile to Portland's most radical salon.";
+            $test_stylist = new Stylist($name, $bio);
+            $test_stylist->save();
+
+            $name = "Hackjob Harrison";
+            $bio = "One of the founders of the Hair-etics, Hackjob has pioneered a rough-cut psycho-chic esthetic which is taking Portland by storm. Inspired by the ingenuity and unbridled creativity of kindergarteners with scissors, Hackjob originals are the hottest new trend.";
+            $test_stylist2 = new Stylist($name, $bio);
+            $test_stylist2->save();
+
+            //Act
+            $test_stylist->delete();
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([$test_stylist2], $result);
+        }
     }
 
 ?>
