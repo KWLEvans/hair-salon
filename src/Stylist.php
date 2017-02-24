@@ -38,6 +38,32 @@
             return $this->id;
         }
 
+        function save()
+        {
+            $sql = $GLOBALS['DB']->prepare("INSERT INTO stylists (name, bio) VALUES (:name, :bio);");
+            $sql->execute([':name' => $this->getName(), ':bio' => $this->getBio()]);
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
+            $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $stylists = [];
+
+            foreach ($returned_stylists as $stylist) {
+                $name = $stylist['name'];
+                $bio = $stylist['bio'];
+                $id = $stylist['id'];
+                $new_stylist = new Stylist($name, $bio, $id);
+                array_push($stylists, $new_stylist);
+            }
+            return $stylists;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists;");
+        }
     }
 
 ?>
