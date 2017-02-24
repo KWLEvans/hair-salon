@@ -1,5 +1,7 @@
 <?php
 
+    require_once "Client.php";
+
     class Stylist
     {
         private $name;

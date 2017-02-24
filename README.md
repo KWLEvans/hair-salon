@@ -30,8 +30,16 @@ CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR (255), bio TEXT);
 CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR (255), stylist_id INT);
 INSERT INTO stylists (name, bio) VALUES ('Tatsuya Uchihara', 'Straight from Blast Salon in Tokyo, the newest Hair-etic Tatsuya \'Uchi\' Uchihara brings a unique flair and dazzling smile to Portland\'s most radical salon.');
 INSERT INTO stylists (name, bio) VALUES ('Hackjob Harrison', 'One of the founders of the Hair-etics, Hackjob has pioneered a rough-cut psycho-chic esthetic which is taking Portland by storm. Inspired by the ingenuity and unbridled creativity of kindergarteners with scissors, Hackjob originals are the hottest new trend.');
-INSERT INTO stylists (name, bio) VALUES ('', '');
-INSERT INTO stylists (name, bio) VALUES ('', '');
+INSERT INTO stylists (name, bio) VALUES ('Herr Hair', 'WUNDERBAR! Herr Hair got his start hacking dos on the mean streets of Berlin in the early 90s. Since then, he has become known for his dangerous styles, combining traditional punk cuts with actual weaponry to fulfill the dreams of even the most hardcore metalheads.');
+INSERT INTO clients (name, stylist_id) VALUES ('Minori Nakada', 1);
+INSERT INTO clients (name, stylist_id) VALUES ('Makoto Haswegawa', 1);
+INSERT INTO clients (name, stylist_id) VALUES ('Mizuki Shida', 1);
+INSERT INTO clients (name, stylist_id) VALUES ('Danny Goodblatt', 2);
+INSERT INTO clients (name, stylist_id) VALUES ('Britney Spears', 2);
+INSERT INTO clients (name, stylist_id) VALUES ('Gary Busey', 2);
+INSERT INTO clients (name, stylist_id) VALUES ('Slasher Dave', 3);
+INSERT INTO clients (name, stylist_id) VALUES ('Death Pile', 3);
+INSERT INTO clients (name, stylist_id) VALUES ('Gladys Stephenson', 3);
 
 ## Known Bugs
 
