@@ -47,6 +47,11 @@
             $sql->execute([':name' => $this->getName(), ':id' => $this->getId()]);
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
+        }
+
         static function getAll()
         {
             $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
