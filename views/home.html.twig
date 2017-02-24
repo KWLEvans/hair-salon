@@ -14,15 +14,15 @@
                                 <button type="button" class="btn require-confirmation">Edit</button>
                                 <form action="/stylists/{{ stylist.getId() }}/edit" class="confirmation-form form-inline">
                                     <h6 class="card-subtitle">Are you sure?</h6>
-                                    <button type="submit" class="btn btn-success">Yes</button>
-                                    <button type="button" class="btn btn-danger no-button">No</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Yes</button>
+                                    <button type="button" class="btn btn-sm btn-danger no-button">No</button>
                                 </form>
                                 <button type="button" class="btn require-confirmation">Delete</button>
                                 <form action="/stylists/{{ stylist.getId() }}" method="post" class="confirmation-form form-inline">
                                     <input name="_method" type="hidden" value="delete">
                                     <h6 class="card-subtitle">Are you sure?</h6>
-                                    <button type="submit" class="btn btn-success">Yes</button>
-                                    <button type="button" class="btn btn-danger no-button">No</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Yes</button>
+                                    <button type="button" class="btn btn-sm btn-danger no-button">No</button>
                                 </form>
                             </div>
                         </h3>

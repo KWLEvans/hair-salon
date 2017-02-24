@@ -8,9 +8,11 @@
             <div class="card">
                 <h3 class="card-header">{{ stylist.getName() }}</h3>
                 <div class="card-block">
+                    <h6 class="card-subtitle text-muted">Click to edit</h6>
+                    <br>
                     <ul>
                         {% for client in clients %}
-                            <li>{{ client.getName() }}</li>
+                            <a href='/clients/{{ client.getId() }}/edit'><li>{{ client.getName() }}</li></a>
                         {% endfor %}
                     </ul>
                 </div>

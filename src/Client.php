@@ -52,6 +52,17 @@
             $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
         }
 
+        static function find($id) {
+            $found_client;
+            $clients = Client::getAll();
+            foreach ($clients as $client) {
+                if ($client->getId() == $id) {
+                    $found_client = $client;
+                }
+            }
+            return $found_client;
+        }
+
         static function getAll()
         {
             $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");

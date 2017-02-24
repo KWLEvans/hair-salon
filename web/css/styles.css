@@ -4,4 +4,23 @@
 
 .confirmation-form {
     display: none;
+    background-color: #d4e3fc;
+    padding: 10px 5px 5px 10px;
+}
+
+.selected, .confirmation-form {
+    border-top: 3px solid yellow;
+    border-bottom: 3px solid yellow;
+    outline-width: 0px !important;
+}
+
+#home-button {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+#bio {
+    width: 70%;
+    margin-bottom: 30px;
 }
