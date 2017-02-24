@@ -20,14 +20,18 @@ _In the case of any issues importing the databses, SQL commands are included bel
 
 ## Database Construction SQL
 
-CREATE DATABASE hair_salon;
-USE hair_salon;
-CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR (255), bio TEXT);
-CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR (255), stylist_id INT);
 CREATE DATABASE hair_salon_test;
 USE hair_salon_test;
 CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR (255), bio TEXT);
 CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR (255), stylist_id INT);
+CREATE DATABASE hair_salon;
+USE hair_salon;
+CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR (255), bio TEXT);
+CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR (255), stylist_id INT);
+INSERT INTO stylists (name, bio) VALUES ('Tatsuya Uchihara', 'Straight from Blast Salon in Tokyo, the newest Hair-etic Tatsuya \'Uchi\' Uchihara brings a unique flair and dazzling smile to Portland\'s most radical salon.');
+INSERT INTO stylists (name, bio) VALUES ('Hackjob Harrison', 'One of the founders of the Hair-etics, Hackjob has pioneered a rough-cut psycho-chic esthetic which is taking Portland by storm. Inspired by the ingenuity and unbridled creativity of kindergarteners with scissors, Hackjob originals are the hottest new trend.');
+INSERT INTO stylists (name, bio) VALUES ('', '');
+INSERT INTO stylists (name, bio) VALUES ('', '');
 
 ## Known Bugs
 
