@@ -45,6 +45,14 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function update($new_name, $new_bio) {
+            $sql = $GLOBALS['DB']->prepare("UPDATE stylists SET name = :name, bio = :bio WHERE id = :id;");
+            $sql->execute([':name' => $new_name, ':bio' => $new_bio, ':id' => $this->getId()]);
+            
+            $this->setName($new_name);
+            $this->setBio($new_bio);
+        }
+
         static function find($id)
         {
             $found_stylist;

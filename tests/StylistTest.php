@@ -94,6 +94,25 @@
             //Assert
             $this->assertEquals($test_stylist, $result);
         }
+
+        function test_update()
+        {
+            //Arrange
+            $name = "Tatsuya Uchihara";
+            $bio = "Straight from Blast Salon in Tokyo, the newest Hair-etic Tatsuya 'Uchi' Uchihara brings a unique flair and dazzling smile to Portland's most radical salon.";
+            $test_stylist = new Stylist($name, $bio);
+            $test_stylist->save();
+
+            //Act
+            $new_name = "Uchi";
+            $new_bio = "This isn't terrace house anymore.";
+            $test_stylist->update($new_name, $new_bio);
+            $stylist = Stylist::getAll()[0];
+
+            //Assert
+            $this->assertEquals($new_name, $stylist->getName());
+            $this->assertEquals($new_bio, $stylist->getBio());
+        }
     }
 
 ?>
