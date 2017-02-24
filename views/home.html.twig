@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col col-7">
+            {% if stylists is not empty %}
+                <h2>Our stylists:</h2>
+                {% for stylist in stylists %}
+                    <div class="card">
+                        <h3 class="card-header">{{ stylist.getName() }}
+                            <div class="btn-group">
+                                <button type="button" class="btn require-confirmation">Edit</button>
+                                <form action="/stylists/{{ stylist.getId() }}/edit" class="confirmation-form form-inline">
+                                    <h6 class="card-subtitle">Are you sure?</h6>
+                                    <button type="submit" class="btn bg-success">Yes</button>
+                                    <button type="button" class="btn bg-danger no-button">No</button>
+                                </form>
+                                <button type="button" class="btn require-confirmation">Delete</button>
+                                <form action="/stylists/{{ stylist.getId() }}" method="post" class="confirmation-form form-inline">
+                                    <input name="_method" type="hidden" value="delete">
+                                    <h6 class="card-subtitle">Are you sure?</h6>
+                                    <button type="submit" class="btn bg-success">Yes</button>
+                                    <button type="button" class="btn bg-danger no-button">No</button>
+                                </form>
+                            </div>
+                        </h3>
+                        <div class="card-block">
+                            <ul>
+                                <li>{{ stylist.getBio() }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col col-5">
+            <div class="card">
+                <h2 class="card-header">Add a stylist</h2>
+                <div class="card-block">
+                    <form action="/add_stylist" method="post" id="add-stylist-form" class="form-group">
+                        <label for="name">Name:</label>
+                        <input id="name" name="name" class="form-control" type="text">
+                        <label for="bio">Bio:</label>
+                        <textarea id="bio" name="bio" class="form-control" rows="4"></textarea>
+                        <button type="submit" class="btn">Add Stylist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

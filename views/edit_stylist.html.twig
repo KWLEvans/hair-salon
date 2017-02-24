@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit stylist{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h3 class="card-header">Edit stylist:</h3>
+        <div class="card-block">
+            <form action="/stylists/{{ stylist.getId() }}" method="post">
+                <input name="_method" type="hidden" value="patch">
+                <label for="name">Name:</label>
+                <input id="name" name="name" type="text" value="{{ stylist.getName() }}">
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4">{{ stylist.getBio() }}</textarea>
+                <button type="submit" class="btn">Update</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
