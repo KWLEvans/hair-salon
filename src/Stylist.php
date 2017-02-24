@@ -38,6 +38,19 @@
             return $this->id;
         }
 
+        function getClients()
+        {
+            $returned_clients = Client::getAll();
+            $clients = [];
+
+            foreach ($returned_clients as $client) {
+                if ($client->getStylistId() == $this->getId()) {
+                    array_push($clients, $client);
+                }
+            }
+            return $clients;
+        }
+
         function save()
         {
             $sql = $GLOBALS['DB']->prepare("INSERT INTO stylists (name, bio) VALUES (:name, :bio);");
